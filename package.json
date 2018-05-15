@@ -1,0 +1,27 @@
+{
+  "name": "dev-tools",
+  "version": "0.1.0",
+  "description": "Addons for the Peerfessional Dev-Tools (Console Wrapper)",
+  "main": "console.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "python -m SimpleHTTPServer 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peerfessional/dev-tools.git"
+  },
+  "keywords": [
+    "dev-tools",
+    "console"
+  ],
+  "author": "kyle-west",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peerfessional/dev-tools/issues"
+  },
+  "homepage": "https://github.com/peerfessional/dev-tools#readme"
+}

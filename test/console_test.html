@@ -1,0 +1,46 @@
+<html>
+   <head>
+      <script src="../console.js"></script>
+   </head>
+
+   <script>
+      // Test suites
+      console.log("----------------------------------------------------------------")
+      console.logn("Check", "This", "Out")
+      console.logn("And this")
+      
+      console.log("----------------------------------------------------------------")
+      console.h1("This should", "be", "an <H1> tag size")
+      console.h2("This should", "be", "an <H2> tag size")
+      console.h3("This should", "be", "an <H3> tag size")
+      console.h4("This should", "be", "an <H4> tag size")
+      console.h5("This should", "be", "an <H5> tag size")
+      console.h6("This should", "be", "an <H6> tag size")
+      console.p("This should", "be", "an <p> tag size")
+      
+      console.log("----------------------------------------------------------------")
+      data = { info: { name: "dave" }, name: "dave" };
+      console.search(data, "dave");
+
+      console.log("----------------------------------------------------------------")
+      var listener1 = console.addListener((msg) => {
+         console.warn(msg);
+      });
+      var listener2 = console.addListener((msg) => {
+         if (msg === "MSG MATCHES") {
+            console.logNoNotify(true);
+         } else {
+            console.logNoNotify(false);
+         }
+      });
+
+      console.log("Message does not match");
+      console.log("MSG MATCHES");
+
+      console.removeListener(listener1);
+      console.removeListener(listener2);
+
+      console.log("No more listeners");
+   
+   </script>
+</html>
