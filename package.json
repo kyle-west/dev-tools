@@ -1,6 +1,6 @@
 {
   "name": "dev-tools",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Addons for the Peerfessional Dev-Tools (Console Wrapper)",
   "main": "console.js",
   "directories": {

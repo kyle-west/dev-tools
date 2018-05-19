@@ -1,31 +1,24 @@
-// Ensure that console is defined;
 if (!console) { console = {}; }
 
-
-// Stats and other metadata
 console.__log_counter = 0;
 console.__log_listeners = [];
-
-// Logs items using a unique log id
+console.__old_log = console.__old_log || console.log;
+console.log = (...args) => {
+   ++console.__log_counter;
+   console.__old_log(...args);
+   console.notify(args.join(' '));
+}
+console.logx = (...args) => {
+   console.__old_log(...args);
+}
 console.logn = (...args) => {
    console.log(`[${++console.__log_counter}]: `, ...args);
 }
 
-
-/**
- * addListener
- * @param {function} funct - a listener function that takes a message argument
- * @returns {function} - the same function we passed in
- */
 console.addListener = (funct) => {
    console.__log_listeners.push(funct);
    return funct;
 }
-
-/**
- * removeListener
- * @param {function} funct - a listener function that takes a message argument
- */
 console.removeListener = (funct) => {
    var idx = console.__log_listeners.indexOf(funct);
    if (idx !== -1) {
@@ -34,33 +27,12 @@ console.removeListener = (funct) => {
       return false;
    }
 }
-
-
-/**
- * Notify
- * @param {string} msg - the message to be passed to all the console listeners
- */
 console.notify = (msg) => {
    console.__log_listeners.forEach(listener => {
       listener(msg);
    });
 }
 
-
-
-/**
- * Circular Inorder Search : Traverse a JavaScript Object tree to find the path for a particular value (check for cricular objects)
- * @param {object} node - this is the JS Obj that you wish to traverse
- * @param {value}  search - The value you wish to find in the node or its children
- * 
- * @example 2.0 
- *     window.data = { info: { name: "dave" }, name: "dave" };
- *     window.name = "dave";
- *     inorderSearchCirc(window, "dave") // vvv   returns   vvv
- *                                       // [Root Node].name : dave
- *                                       // [Root Node].data.info.name : dave
- *                                       // [Root Node].data.name : dave
- */
 console.search = (node, search, name) => {
    if (!name) {
       name = "[Root Node]";
@@ -86,13 +58,50 @@ console.search = (node, search, name) => {
    }
 }
 
+console.cookies = (search) => {
+  var cookies = document.cookie.split("; ");
+  if (search) { 
+    var found = [];
+    cookies.forEach((cookie) => {
+      if (cookie.includes(search)) {
+        found.push(cookie);
+      }
+    });
+    return found;
+  }
+  return cookies;
+}
+console.cookies.json = (search) => {
+  var json = {};
+  var cookies = document.cookie.split("; ");
+  cookies.forEach((cookie) => {
+    var key_val = cookie.split("=");
+    if (!search || cookie.includes(search)) {
+      json[key_val[0]] = key_val[1];
+    }
+  });
+  return json;
+}
 
+console.load = (url) => {
+  return new Promise(function(resolve) {
+    var package = document.createElement('script');
+    package.src = url;
+    package.type = 'text/javascript';
+    package.onload = (e) => {
+      console.group(`LOADED PACKAGE FROM: ${url}`);
+      console.log(e);
+      console.groupEnd();
+      resolve(e);
+    };
+    document.getElementsByTagName('head')[0].appendChild(package);
+  });
+};
 
+console.extend = () => {
+  return new Promise((resolve) => resolve());
+}
 
-
-
-
-// CSS styled pseudo-html
 console.css = `
    font-family: Arial;
 `;
@@ -116,18 +125,4 @@ console.h6 = (...args) => {
 }
 console.p = (...args) => {
    console.log(`%c${args.join(' ')}`, console.css);
-}
-
-
-/**
- * @override Console.log to record stats and notify listening parties
- */
-console.__old_log = console.log;
-console.log = (...args) => {
-   ++console.__log_counter;
-   console.__old_log(...args);
-   console.notify(args.join(' '));
-}
-console.logNoNotify = (...args) => {
-   console.__old_log(...args);
 }
