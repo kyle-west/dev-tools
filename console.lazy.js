@@ -1,1 +1,1 @@
-console.extend=()=>{return new Promise((r)=>{var p=document.createElement('script');p.src="https://cdn.rawgit.com/peerfessional/dev-tools/master/console.js";p.type='text/javascript';p.onload=(e)=>{r(e);};document.head.appendChild(p);});}
+console.extend=()=>{return new Promise((r)=>{var p=document.createElement('script');p.src="https://cdn.rawgit.com/kyle-west/dev-tools/master/console.js";p.type='text/javascript';p.onload=(e)=>{r(e);};document.head.appendChild(p);});}

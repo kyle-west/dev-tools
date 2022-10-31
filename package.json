@@ -1,7 +1,7 @@
 {
   "name": "dev-tools",
   "version": "0.3.0",
-  "description": "Addons for the Peerfessional Dev-Tools (Console Wrapper)",
+  "description": "Addons for Dev-Tools (Console Wrapper)",
   "main": "console.js",
   "directories": {
     "test": "test"
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/peerfessional/dev-tools.git"
+    "url": "git+https://github.com/kyle-west/dev-tools.git"
   },
   "keywords": [
     "dev-tools",
@@ -21,7 +21,7 @@
   "author": "kyle-west",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/peerfessional/dev-tools/issues"
+    "url": "https://github.com/kyle-west/dev-tools/issues"
   },
-  "homepage": "https://github.com/peerfessional/dev-tools#readme"
+  "homepage": "https://github.com/kyle-west/dev-tools#readme"
 }
