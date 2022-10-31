@@ -1,13 +1,17 @@
-# Peerfessional Dev-Tools Extension
+# Dev-Tools Extension
 
-This package is a suite of `Console` extensions used by developers here at Peerfessional. We have found these tools useful to our development practices, and decided to make this project open source for others to use.
+_UDPATE: This project is pretty well abandoned. I don't use these tools anymore and DevTools has gotten better in the last 5 years._
+
+This package is a suite of `Console` extensions used by me on occasion. I have found these tools useful to some of my private development practices, and decided to make this project open source for others to use.
+
+Perhaps one day I will make this a chrome extention.
 
 ## Installation
 
 Include a script source to `console.js` in your head tag. Below is an example using the [RawGit CDN](https://rawgit.com/) to pull in the latest version on GitHub.
 
 ```html
-<script src='https://cdn.rawgit.com/peerfessional/dev-tools/master/console.js'></script>
+<script src='https://cdn.rawgit.com/kyle-west/dev-tools/master/console.js'></script>
 ```
 
 ## Lazy Loading the Dev-Tools
@@ -15,10 +19,10 @@ Include a script source to `console.js` in your head tag. Below is an example us
 As a general rule of practice, we reccomend lazy loading the console extensions. We have made it easy for you to do so. Simply include a source to `console.lazy.js` instead of `console.js`. This file is less than 240 Bytes, and allows for the extensions to be loaded on demand later.
 
 ```html
-<script src='https://cdn.rawgit.com/peerfessional/dev-tools/master/console.lazy.js'></script>
+<script src='https://cdn.rawgit.com/kyle-west/dev-tools/master/console.lazy.js'></script>
 ```
 
-Now you are just one call away from sourcing in all the Peerfessional dev-tools. 
+Now you are just one call away from sourcing in all the extended dev-tools. 
 
 ```js
 console.extend().then(() => {
@@ -28,7 +32,7 @@ console.extend().then(() => {
 
 # What tools are avaliable? 
 
-When loaded, the Peerfessional Dev-Tools add several additional methods to the native `console` object.
+When loaded, the Dev-Tools add several additional methods to the native `console` object.
 
 
 ## `console.addListener()` Log listeners
